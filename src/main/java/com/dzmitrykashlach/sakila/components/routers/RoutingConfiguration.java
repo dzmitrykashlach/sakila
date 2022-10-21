@@ -1,6 +1,6 @@
-package com.dzmitrykashlach.checklist.components.routers;
+package com.dzmitrykashlach.sakila.components.routers;
 
-import com.dzmitrykashlach.checklist.components.handlers.PaymentsHandler;
+import com.dzmitrykashlach.sakila.components.handlers.PaymentsHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

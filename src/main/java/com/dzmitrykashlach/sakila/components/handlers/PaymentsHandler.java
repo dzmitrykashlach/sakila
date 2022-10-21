@@ -1,4 +1,4 @@
-package com.dzmitrykashlach.checklist.components.handlers;
+package com.dzmitrykashlach.sakila.components.handlers;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

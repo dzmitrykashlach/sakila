@@ -1,4 +1,4 @@
-package com.dzmitrykashlach.checklist.components;
+package com.dzmitrykashlach.sakila.components;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
