@@ -9,12 +9,11 @@ spring:
   sql:
    init:
      mode: always
-  jackson:
-    serialization:
-      FAIL_ON_EMPTY_BEANS: false
-
-logging:
-   level:
+  thymeleaf:
+    reactive:
+      max-chunk-size=8192: logging
+  level:
       org:
         springframework:
           r2dbc: DEBUG
+
