@@ -21,17 +21,19 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux:2.7.4'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:2.7.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.7.5'
     implementation group: 'dev.miku', name: 'r2dbc-mysql', version: '0.8.2.RELEASE'
     implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '1.0.23'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 group = 'com.dzmitrykashlach'
 version = '0.0.1-SNAPSHOT'
 description = 'sakila'
-java.sourceCompatibility = JavaVersion.VERSION_11
-java.targetCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
