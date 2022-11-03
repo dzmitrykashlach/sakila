@@ -26,6 +26,7 @@ dependencies {
     implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '1.0.23'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+    implementation "org.flywaydb:flyway-core:9.7.0"
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 

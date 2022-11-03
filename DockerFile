@@ -1,0 +1,5 @@
+FROM openjdk:17.0.1
+ENV PROJECT_HOME /usr/app/
+COPY build/libs/sakila-0.0.1-SNAPSHOT.jar $PROJECT_HOME/sakila-0.0.1-SNAPSHOT.jar
+WORKDIR $PROJECT_HOME
+CMD ["java", "-jar", "./sakila-0.0.1-SNAPSHOT.jar"]

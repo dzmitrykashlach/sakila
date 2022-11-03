@@ -1,8 +1,6 @@
 spring:
   r2dbc:
-    url: r2dbc:mysql://vultradmin:AVNS_iO2s-nv-yqo65BqawrS@vultr-prod-6e485e4d-c29e-4cfe-ab6a-b99a5521faa1-vultr-prod-dfe2.vultrdb.com:16751/sakila
-    name: vultradmin
-    password:
+    url: r2dbc:mysql://root:root@localhost:3306/sakila
   jpa:
     generate-ddl: true
     debug: true
