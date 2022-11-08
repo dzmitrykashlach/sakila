@@ -1,4 +1,4 @@
-package com.dzmitrykashlach.sakila.components;
+package flux.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

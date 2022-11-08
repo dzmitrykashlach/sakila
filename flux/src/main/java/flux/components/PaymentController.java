@@ -1,4 +1,4 @@
-package com.dzmitrykashlach.sakila.components;
+package flux.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ public class PaymentController {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    @RequestMapping("/ui/payments")
+    @RequestMapping("/flux/ui/payments")
     public String index(final Model model) {
 
         // loads 1 and display 1, stream data, data driven mode.

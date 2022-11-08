@@ -1,4 +1,4 @@
-package com.dzmitrykashlach.sakila.components;
+package com.mvc.components;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;

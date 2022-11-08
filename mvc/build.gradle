@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id "org.springframework.boot" version "2.7.4"
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.spring.io/milestone')
+    }
+
+    maven {
+        url = uri('https://repo.spring.io/snapshot')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jdbc', version: '2.7.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.7.4'
+    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.0.31'
+    implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '1.0.23'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
+
+group = 'com.dzmitrykashlach'
+version = '0.0.1-SNAPSHOT'
+description = 'mvc'
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
