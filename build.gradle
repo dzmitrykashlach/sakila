@@ -10,6 +10,7 @@ flyway {
     user = 'root'
     password = 'root'
     baselineOnMigrate = true
+    locations = ['filesystem:./migration']
 }
 repositories {
     mavenLocal()
@@ -33,7 +34,6 @@ dependencies {
 
 group = 'com.dzmitrykashlach'
 version = '0.0.1-SNAPSHOT'
-//description = 'sakila'
 java.sourceCompatibility = JavaVersion.VERSION_17
 java.targetCompatibility = JavaVersion.VERSION_17
 
