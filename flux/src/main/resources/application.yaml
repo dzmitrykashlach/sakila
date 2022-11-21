@@ -14,4 +14,10 @@ spring:
       org:
         springframework:
           r2dbc: DEBUG
-
+  mail:
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000

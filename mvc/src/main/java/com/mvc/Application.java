@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.retry.annotation.EnableRetry;
 
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -15,6 +16,7 @@ import java.util.Random;
 
 @SpringBootApplication(scanBasePackages = {"com.mvc.components"})
 @ComponentScan({"com.mvc.components"})
+@EnableRetry
 public class Application implements CommandLineRunner {
 
 
@@ -27,7 +29,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Random random = new Random();
+        /*Random random = new Random();
         // SELECT * from payment p  order by payment_id  DESC ;
         long paymentSize = paymentRepository.findAll().spliterator().getExactSizeIfKnown();
         while (paymentSize < 65528) {
@@ -36,6 +38,6 @@ public class Application implements CommandLineRunner {
             );
             paymentRepository.save(payment);
             paymentSize++;
-        }
+        }*/
     }
 }
