@@ -29,7 +29,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        /*Random random = new Random();
+        Random random = new Random();
         // SELECT * from payment p  order by payment_id  DESC ;
         long paymentSize = paymentRepository.findAll().spliterator().getExactSizeIfKnown();
         while (paymentSize < 65528) {
@@ -38,6 +38,6 @@ public class Application implements CommandLineRunner {
             );
             paymentRepository.save(payment);
             paymentSize++;
-        }*/
+        }
     }
 }

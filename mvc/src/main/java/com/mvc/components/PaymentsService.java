@@ -2,8 +2,12 @@ package com.mvc.components;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.RecoveryCallback;
+import org.springframework.retry.RetryCallback;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
+import org.springframework.retry.support.RetryTemplate;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,8 +23,22 @@ public class PaymentsService {
 
     HttpClient httpClient;
 
-    PaymentsService(){
-            httpClient = HttpClient.newBuilder()
+    @Autowired
+    private RetryTemplate retryTemplate;
+
+    final RetryCallback<String, Exception> retryCallback = context -> {
+        System.out.println("retryCallback");
+        return "RETRIED";
+
+    };
+
+    final RecoveryCallback<String> recoveryCallback = context -> {
+        System.out.println("recoveryCallback");
+        return "RECOVERED";
+    };
+
+    PaymentsService() {
+        httpClient = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .followRedirects(HttpClient.Redirect.NORMAL)
                 .connectTimeout(Duration.ofSeconds(20))
@@ -28,17 +46,22 @@ public class PaymentsService {
     }
 
     @Retryable(retryFor = Exception.class, maxAttempts = 2, backoff = @Backoff(delay = 100))
-    void fluxPayments(){
+    void fluxPayments() {
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-//                .uri(URI.create("http://localhost:8080/flux/ui/payments"))
-                .uri(URI.create("http://google.com"))
+                .uri(URI.create("http://localhost:8080/flux/ui/payments"))
+//                .uri(URI.create("http://google.com"))
                 .setHeader("User-Agent", "Java 11 HttpClient") // add request header
                 .build();
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
             System.out.println(e);
+            try {
+                String status= retryTemplate.execute(retryCallback, recoveryCallback);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
 
