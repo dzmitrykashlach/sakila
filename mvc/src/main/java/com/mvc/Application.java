@@ -11,6 +11,8 @@ import org.springframework.retry.annotation.EnableRetry;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -32,12 +34,16 @@ public class Application implements CommandLineRunner {
         Random random = new Random();
         // SELECT * from payment p  order by payment_id  DESC ;
         long paymentSize = paymentRepository.findAll().spliterator().getExactSizeIfKnown();
+        List<Payment> payments = new ArrayList<>();
         while (paymentSize < 65528) {
             Payment payment = new Payment(599, 1, 514, random.nextFloat(),
                     LocalDateTime.of(2022, Month.APRIL, 16, 12, 34)
             );
-            paymentRepository.save(payment);
+            payments.add(payment);
             paymentSize++;
         }
+        System.out.println(System.currentTimeMillis());
+        paymentRepository.saveAll(payments);
+        System.out.println(System.currentTimeMillis());
     }
 }
