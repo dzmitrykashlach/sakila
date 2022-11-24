@@ -13,7 +13,7 @@ public class PaymentController {
     private PaymentRepository paymentRepository;
 
     @Autowired
-    private PaymentsService paymentsService;
+    private PaymentsServiceImpl paymentsService;
 
     @RequestMapping("/mvc/ui/payments")
     public String index(final Model model) {

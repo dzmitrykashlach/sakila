@@ -32,7 +32,6 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Random random = new Random();
-        // SELECT * from payment p  order by payment_id  DESC ;
         long paymentSize = paymentRepository.findAll().spliterator().getExactSizeIfKnown();
         List<Payment> payments = new ArrayList<>();
         while (paymentSize < 65528) {
@@ -42,8 +41,8 @@ public class Application implements CommandLineRunner {
             payments.add(payment);
             paymentSize++;
         }
-        System.out.println(System.currentTimeMillis());
-        paymentRepository.saveAll(payments);
-        System.out.println(System.currentTimeMillis());
+        if(payments.size()>0){
+            paymentRepository.saveAll(payments);
+        }
     }
 }
