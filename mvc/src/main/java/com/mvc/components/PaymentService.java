@@ -6,7 +6,9 @@ import org.springframework.retry.annotation.Retryable;
 
 public interface PaymentService {
 
-    @Retryable(recover = "recover", retryFor = RuntimeException.class, maxAttempts = 5, backoff = @Backoff(delay = 2000))
+    @Retryable(recover = "recover", retryFor = RuntimeException.class,
+            maxAttempts = 5, backoff = @Backoff(delay = 2000),
+            listeners = {"paymentsRetryListener"})
     void fluxPayments();
 
     @Recover
