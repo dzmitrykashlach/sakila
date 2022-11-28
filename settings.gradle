@@ -1,4 +1,6 @@
 rootProject.name = 'sakila'
 include 'mvc'
 include 'flux'
+include 'auth-server'
+include 'oauth-2-0-server'
 

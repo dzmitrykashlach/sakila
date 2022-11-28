@@ -13,12 +13,12 @@ public class PaymentController {
     private PaymentRepository paymentRepository;
 
     @Autowired
-    private PaymentsServiceImpl paymentsService;
+    private PaymentService paymentsService;
 
     @RequestMapping("/mvc/ui/payments")
     public String index(final Model model) {
         model.addAttribute("payments", paymentRepository.findAll());
-        paymentsService.fluxPayments();
+//        paymentsService.fluxPayments();
         return "index";
 
     }

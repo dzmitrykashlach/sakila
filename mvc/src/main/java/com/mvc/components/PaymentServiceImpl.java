@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.Arrays;
 
 @Service
-public class PaymentsServiceImpl implements PaymentService{
+public class PaymentServiceImpl implements PaymentService{
 
     @Override
     public void fluxPayments(){
