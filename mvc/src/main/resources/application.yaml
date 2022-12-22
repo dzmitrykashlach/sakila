@@ -15,16 +15,21 @@ spring:
 
   security:
     oauth2:
-      client:
-        registration:
-          google:
-            client-id:
-            client-secret:
-            scope: openid,profile,email
       resourceserver:
         jwt:
-          issuer-uri: https://accounts.google.com
-          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+          issuer-uri: http://auth-server:9000
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id:
+#            client-secret:
+#            scope: openid,profile,email
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://accounts.google.com
+#          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
 logging:
   level:
     org:
