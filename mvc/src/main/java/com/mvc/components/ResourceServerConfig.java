@@ -13,7 +13,7 @@ public class ResourceServerConfig {
         http.mvcMatcher("/mvc/ui/payments/**")
                 .authorizeRequests()
                 .mvcMatchers("/mvc/ui/payments/**")
-                .access("hasAuthority('SCOPE_paymentsa.read')")
+                .access("hasRole('USER')")
                 .and()
                 .oauth2ResourceServer()
                 .jwt();
